@@ -36,3 +36,5 @@ const reducer = (state = initialState, action) => {
         case 'REMOVE_EMPLOYEE': return removeEmployee(state, action)
     }
 }
+
+export default reducer;
