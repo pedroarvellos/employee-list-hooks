@@ -18,7 +18,7 @@ const EmployeeForm = props => {
                     fullWidth
                     autoFocus
                 />
-                <br/>
+                <br />
                 <TextField
                     label='role'
                     margin='normal'
@@ -26,6 +26,17 @@ const EmployeeForm = props => {
                     onChange={event => handleChange(event, 'role')}
                     fullWidth
                 />
+                <br />
+                <Box display="flex" p={1} justifyContent="flex-end">
+                    <Button
+                        type="submit"
+                        size="small"
+                        variant="contained"
+                        color="primary"
+                    >
+                        Add
+                    </Button>
+                </Box>
             </form>
         </Paper>
     )
