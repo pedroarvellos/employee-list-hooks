@@ -18,6 +18,14 @@ const EmployeeForm = props => {
                     fullWidth
                     autoFocus
                 />
+                <br/>
+                <TextField
+                    label='role'
+                    margin='normal'
+                    value={info.role ? info.role : ''}
+                    onChange={event => handleChange(event, 'role')}
+                    fullWidth
+                />
             </form>
         </Paper>
     )
