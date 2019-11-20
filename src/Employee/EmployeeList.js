@@ -10,7 +10,7 @@ const EmployeeList = ({ employees, deleteEmployee }) => {
                         <ListItemText key={employee.name}>{employee.name}</ListItemText>
                         <ListItemText key={employee.role}>{employee.role}</ListItemText>
                         <ListItemIcon>
-                            <Button onClick={() => deleteEmployee(employee.id)} size='small' variant='contained' style={{ backgroundColor: '#FB5A62', color: 'white'}}> delete </Button>
+                            <Button onClick={() => removeEmployee(employee.id)} size='small' variant='contained' style={{ backgroundColor: '#FB5A62', color: 'white'}}> delete </Button>
                         </ListItemIcon>
                     </ListItem>
                 ))}
