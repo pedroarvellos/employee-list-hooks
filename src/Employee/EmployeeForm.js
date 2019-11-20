@@ -39,15 +39,8 @@ const EmployeeForm = ({ addEmployee }) => {
                     fullWidth
                 />
                 <br />
-                <Box display="flex" p={1} justifyContent="flex-end">
-                    <Button
-                        type="submit"
-                        size="small"
-                        variant="contained"
-                        color="primary"
-                    >
-                        Add
-                    </Button>
+                <Box display='flex' p={1} justifyContent='flex-end'>
+                    <Button type='submit' size='small' variant='contained' color='primary'> Add </Button>
                 </Box>
             </form>
         </Paper>

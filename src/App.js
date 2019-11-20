@@ -6,17 +6,23 @@ import EmployeeForm from './Employee/EmployeeForm';
 const App = () => {
   const [employeesList, setEmployeesList] = useState([
     {
-      name: "Mark McDowel",
-      role: "Software Engineer"
+      id: '1',
+      name: 'Mark McDowel',
+      role: 'Software Engineer'
     },
     {
-      name: "Chris Denver",
-      role: "Software Architect"
+      id: '2',
+      name: 'Chris Denver',
+      role: 'Software Architect'
     }
   ])
 
   const addEmployee = employee => {
     setEmployeesList(employeesList.concat(employee))
+  }
+
+  const deleteEmployee = employee => {
+
   }
 
   return (
