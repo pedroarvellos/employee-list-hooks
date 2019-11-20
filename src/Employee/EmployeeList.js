@@ -1,14 +1,18 @@
 import React from 'react'
 import { Paper, List, ListItem, ListItemText } from '@material-ui/core'
 
-const EmployeeList = props => {
+const EmployeeList = ({ employees }) => {
     return (
         <Paper>
             <List>
-                <ListItem>
-                    <ListItemText>Pedro Arvellos</ListItemText>
-                    <ListItemText>Software Analyst</ListItemText>
-                </ListItem>
+                {
+                    employees.map(employee => (
+                        <ListItem key={employee.name}>
+                            <ListItemText key={employee.name}>{employee.name}</ListItemText>
+                            <ListItemText key={employee.role}>{employee.role}</ListItemText>
+                        </ListItem>
+                    ))
+                }
             </List>
         </Paper>
     )

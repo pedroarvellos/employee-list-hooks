@@ -25,7 +25,7 @@ const App = () => {
     >
       <Grid container justify='center'>
         <Grid item xs={11} md={8} lg={4}>
-          <EmployeeList></EmployeeList>
+          <EmployeeList employees={employeesList}></EmployeeList>
         </Grid>
       </Grid>
     </Paper>
