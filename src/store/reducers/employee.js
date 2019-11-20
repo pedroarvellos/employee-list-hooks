@@ -34,6 +34,7 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_EMPLOYEE': return addEmployee(state, action)
         case 'REMOVE_EMPLOYEE': return removeEmployee(state, action)
+        default: return state
     }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Paper, List, ListItem, ListItemText, ListItemIcon, Button } from '@material-ui/core'
 
-const EmployeeList = ({ employees, deleteEmployee }) => {
+const EmployeeList = ({ employees, removeEmployee }) => {
     return (
         <Paper style={{ margin: '1em 0', padding: '0 2em' }}>
             <List>
