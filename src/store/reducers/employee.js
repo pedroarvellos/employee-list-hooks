@@ -1,4 +1,5 @@
 import uuid from 'uuid/v4'
+import * as actionTypes from '../actionTypes'
 
 const initialState = {
     employees: [
@@ -32,8 +33,8 @@ const removeEmployee = (state, action) => {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_EMPLOYEE': return addEmployee(state, action)
-        case 'REMOVE_EMPLOYEE': return removeEmployee(state, action)
+        case actionTypes.ADD_EMPLOYEE: return addEmployee(state, action)
+        case actionTypes.REMOVE_EMPLOYEE: return removeEmployee(state, action)
         default: return state
     }
 }
