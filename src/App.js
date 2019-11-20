@@ -21,8 +21,8 @@ const App = () => {
     setEmployeesList(employeesList.concat(employee))
   }
 
-  const deleteEmployee = employee => {
-
+  const deleteEmployee = employeeId => {
+    setEmployeesList(employeesList.filter(employee => employee.id !== employeeId))
   }
 
   return (
@@ -36,7 +36,7 @@ const App = () => {
     >
       <Grid container justify='center'>
         <Grid item xs={11} md={8} lg={4}>
-          <EmployeeList employees={employeesList}></EmployeeList>
+          <EmployeeList employees={employeesList} deleteEmployee={deleteEmployee}></EmployeeList>
           <EmployeeForm addEmployee={addEmployee}></EmployeeForm>
         </Grid>
       </Grid>

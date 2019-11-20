@@ -40,7 +40,7 @@ const EmployeeForm = ({ addEmployee }) => {
                 />
                 <br />
                 <Box display='flex' p={1} justifyContent='flex-end'>
-                    <Button type='submit' size='small' variant='contained' color='primary'> Add </Button>
+                    <Button type='submit' size='small' variant='contained' style={{ backgroundColor: '#6693AE', color: 'white'}}> Add </Button>
                 </Box>
             </form>
         </Paper>
