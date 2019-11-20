@@ -4,7 +4,14 @@ import EmployeeList from './Employee/EmployeeList';
 
 const App = () => {
   return (
-    <Paper>
+    <Paper
+      style={{
+        padding: 0,
+        margin: 0,
+        height: '100vh',
+        backgroundColor: '#fafafa'
+      }}
+    >
       <Grid container justify='center'>
         <Grid item xs={11} md={8} lg={4}>
           <EmployeeList></EmployeeList>
