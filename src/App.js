@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import { Paper, Grid } from '@material-ui/core'
+import uuid from 'uuid/v4'
 import EmployeeList from './Employee/EmployeeList';
 import EmployeeForm from './Employee/EmployeeForm';
 
 const App = () => {
   const [employeesList, setEmployeesList] = useState([
     {
-      id: '1',
+      id: uuid(),
       name: 'Mark McDowel',
       role: 'Software Engineer'
     },
     {
-      id: '2',
+      id: uuid(),
       name: 'Chris Denver',
       role: 'Software Architect'
     }
   ])
 
   const addEmployee = employee => {
-    setEmployeesList(employeesList.concat(employee))
+    setEmployeesList(employeesList.concat({...employee, ...{id: uuid()}}))
   }
 
   const deleteEmployee = employeeId => {
