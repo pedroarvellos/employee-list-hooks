@@ -26,6 +26,26 @@ export const fetchEmployees = () => {
     }
 }
 
+export const addEmployeeStart = () => {
+    return {
+        type: actionTypes.ADD_EMPLOYEE_START
+    }
+}
+
+export const addEmployeeSuccess = employee => {
+    return {
+        type: actionTypes.ADD_EMPLOYEE_SUCCESS,
+        employee: employee
+    }
+}
+
+export const addEmployeeFail = err => {
+    return {
+        type: actionTypes.ADD_EMPLOYEE_FAIL,
+        err: err
+    }
+}
+
 export const addEmployee = employee => {
     return {
         type: actionTypes.ADD_EMPLOYEE,

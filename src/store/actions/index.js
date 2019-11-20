@@ -2,5 +2,9 @@ export {
     fetchEmployees,
     fetchEmployeesStart,
     fetchEmployeesSuccess,
-    fetchEmployeesFail
+    fetchEmployeesFail,
+    addEmployee,
+    addEmployeeStart,
+    addEmployeeSuccess,
+    addEmployeeFail
 } from './employee'

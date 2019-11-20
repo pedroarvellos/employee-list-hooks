@@ -19,3 +19,14 @@ export function* fetchEmployeesSaga() {
         yield put(actions.fetchEmployeesFail(err));
     }
 }
+
+export function* addEmployeesSaga(action) {
+    yield put(actions.addEmployeeStart());
+    try {
+        const response = yield axios.post('/employees.json', action.employee);
+
+        yield put(actions.addEmployeeSuccess({ ...action.employee, ...{ id: response.data.name } }));
+    } catch (err) {
+        yield put(actions.addEmployeeFail(err));
+    }
+}
