@@ -1,16 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Paper, TextField, Button, Box } from '@material-ui/core'
+import useInfoState from '../hooks/useInfoState'
 
 const EmployeeForm = ({ addEmployee }) => {
-    const [info, setInfo] = useState({})
-
-    const handleChange = (e, fieldName) => {
-        setInfo({ ...info, ...{ [fieldName]: e.target.value } })
-    }
-
-    const resetInfo = () => {
-        setInfo({})
-    }
+    const {info, handleChange, resetInfo} = useInfoState()
 
     return (
         <Paper style={{ margin: '1em 0', padding: '0 2em' }}>
