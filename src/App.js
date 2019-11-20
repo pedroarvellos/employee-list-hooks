@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Paper, Grid } from '@material-ui/core'
 import EmployeeList from './Employee/EmployeeList';
 
 const App = () => {
+  const [employeesList, setEmployeesList] = useState([
+    {
+      name: "Mark McDowel",
+      role: "Software Engineer"
+    },
+    {
+      name: "Chris Denver",
+      role: "Software Architect"
+    }
+  ])
+
   return (
     <Paper
       style={{
