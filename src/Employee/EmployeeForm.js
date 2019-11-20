@@ -4,7 +4,6 @@ import { Paper, TextField, Button, Box } from '@material-ui/core'
 const EmployeeForm = props => {
     const [info, setInfo] = useState({})
     const handleChange = (e, fieldName) => {
-        console.log(e.target.value)
         setInfo(...info, ...{ [fieldName]: e.target.value })
     }
     return (
@@ -21,3 +20,5 @@ const EmployeeForm = props => {
         </Paper>
     )
 }
+
+export default EmployeeForm

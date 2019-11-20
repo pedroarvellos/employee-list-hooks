@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Paper, Grid } from '@material-ui/core'
 import EmployeeList from './Employee/EmployeeList';
+import EmployeeForm from './Employee/EmployeeForm';
 
 const App = () => {
   const [employeesList, setEmployeesList] = useState([
@@ -26,6 +27,7 @@ const App = () => {
       <Grid container justify='center'>
         <Grid item xs={11} md={8} lg={4}>
           <EmployeeList employees={employeesList}></EmployeeList>
+          <EmployeeForm></EmployeeForm>
         </Grid>
       </Grid>
     </Paper>
