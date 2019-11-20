@@ -1,15 +1,27 @@
 import React, { useState } from 'react'
 import { Paper, TextField, Button, Box } from '@material-ui/core'
 
-const EmployeeForm = props => {
+const EmployeeForm = ({ addEmployee }) => {
     const [info, setInfo] = useState({})
 
     const handleChange = (e, fieldName) => {
         setInfo({ ...info, ...{ [fieldName]: e.target.value } })
     }
+
+    const resetInfo = () => {
+        setInfo({})
+    }
+
     return (
         <Paper style={{ margin: '1em 0', padding: '0 2em' }}>
-            <form onSubmit={e => console.log(e)} style={{ width: '100%', padding: '0.5em' }}>
+            <form
+                onSubmit={e => {
+                    e.preventDefault()
+                    resetInfo()
+                    addEmployee(info)
+                }}
+                style={{ width: '100%', padding: '0.5em' }}
+            >
                 <TextField
                     label='name'
                     margin='normal'

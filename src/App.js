@@ -15,6 +15,10 @@ const App = () => {
     }
   ])
 
+  const addEmployee = employee => {
+    setEmployeesList(employeesList.concat(employee))
+  }
+
   return (
     <Paper
       style={{
@@ -27,7 +31,7 @@ const App = () => {
       <Grid container justify='center'>
         <Grid item xs={11} md={8} lg={4}>
           <EmployeeList employees={employeesList}></EmployeeList>
-          <EmployeeForm></EmployeeForm>
+          <EmployeeForm addEmployee={addEmployee}></EmployeeForm>
         </Grid>
       </Grid>
     </Paper>
