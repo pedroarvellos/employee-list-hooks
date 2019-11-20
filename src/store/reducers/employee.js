@@ -2,18 +2,30 @@ import uuid from 'uuid/v4'
 import * as actionTypes from '../actionTypes'
 
 const initialState = {
-    employees: [
-        {
-            id: uuid(),
-            name: 'Mark McDowel',
-            role: 'Software Engineer'
-        },
-        {
-            id: uuid(),
-            name: 'Chris Denver',
-            role: 'Software Architect'
-        }
-    ]
+    employees: [],
+    loading: false,
+    err: {}
+}
+
+const fetchEmployeesSuccess = (state, action) => {
+    return {
+        ...state,
+        ...{ employees: action.employees, loading: false }
+    }
+}
+
+const fetchEmployeesFail = (state, action) => {
+    return {
+        ...state,
+        ...{ err: action.err, loading: false }
+    }
+}
+
+const fetchEmployeesStart = state => {
+    return {
+        ...state,
+        ...{ loading: true }
+    }
 }
 
 const addEmployee = (state, action) => {
@@ -33,6 +45,9 @@ const removeEmployee = (state, action) => {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.FETCH_EMPLOYEES_START: return fetchEmployeesStart(state)
+        case actionTypes.FETCH_EMPLOYEES_FAIL: return fetchEmployeesFail(state, action)
+        case actionTypes.FETCH_EMPLOYEES_SUCCESS: return fetchEmployeesSuccess(state, action)
         case actionTypes.ADD_EMPLOYEE: return addEmployee(state, action)
         case actionTypes.REMOVE_EMPLOYEE: return removeEmployee(state, action)
         default: return state
