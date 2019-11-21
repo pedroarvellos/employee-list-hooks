@@ -5,10 +5,11 @@ import Spinner from '../Components/Spinner/Spinner'
 
 const EmployeeList = ({ employees, removeEmployee }) => {
     const isLoading = useSelector(state => state.employeeReducer.loading)
+    const spinner = isLoading && <div style={{ textAlign: 'center' }}><Spinner /></div>
     return (
         <Paper style={{ margin: '1em 0', padding: '0 2em' }}>
             <List style={{ paddingTop: '1em' }}>
-                <div style={{ textAlign: 'center' }}>{isLoading ? <Spinner /> : null}</div>
+                {spinner}
                 {employees.map(employee => (
                     <ListItem key={employee.id}>
                         <ListItemText key={employee.name}>{employee.name}</ListItemText>
