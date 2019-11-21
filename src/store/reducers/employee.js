@@ -1,4 +1,3 @@
-import uuid from 'uuid/v4'
 import * as actionTypes from '../actionTypes'
 
 const initialState = {
@@ -29,10 +28,9 @@ const fetchEmployeesStart = state => {
 }
 
 const addEmployeeSuccess = (state, action) => {
-    const newEmployee = { ...action.employee, ...{ id: uuid() } }
     return {
         ...state,
-        ...{ employees: state.employees.concat(newEmployee), loading: false }
+        ...{ employees: state.employees.concat(action.employee), loading: false }
     }
 }
 
