@@ -30,3 +30,15 @@ export function* addEmployeesSaga(action) {
         yield put(actions.addEmployeeFail(err));
     }
 }
+
+export function* removeEmployeesSaga(action) {
+    yield put(actions.removeEmployeeStart());
+    try {
+        yield axios.delete('/employees.json', action.employeeId);
+
+        yield put(actions.removeEmployeeSuccess(action.employeeId));
+    } catch (err) {
+        console.log(err)
+        yield put(actions.removeEmployeeFail(err));
+    }
+}
