@@ -53,6 +53,25 @@ export const addEmployee = employee => {
     }
 }
 
+export const removeEmployeeStart = () => {
+    return {
+        type: actionTypes.REMOVE_EMPLOYEE_START
+    }
+}
+
+export const removeEmployeeSuccess = employeeId => {
+    return {
+        type: actionTypes.REMOVE_EMPLOYEE_SUCCESS,
+        employeeId: employeeId
+    }
+}
+
+export const removeEmployeeFail = err => {
+    return {
+        type: actionTypes.REMOVE_EMPLOYEE_FAIL,
+        err: err
+    }
+}
 export const removeEmployee = employeeId => {
     return {
         type: actionTypes.REMOVE_EMPLOYEE,
