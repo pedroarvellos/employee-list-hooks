@@ -6,5 +6,9 @@ export {
     addEmployee,
     addEmployeeStart,
     addEmployeeSuccess,
-    addEmployeeFail
+    addEmployeeFail,
+    removeEmployee,
+    removeEmployeeStart,
+    removeEmployeeSuccess,
+    removeEmployeeFail
 } from './employee'
