@@ -1,29 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { Paper, Grid } from '@material-ui/core'
-import EmployeeList from './Employee/EmployeeList';
-import EmployeeForm from './Employee/EmployeeForm';
+import EmployeeList from './Employee/EmployeeList'
+import EmployeeForm from './Employee/EmployeeForm'
+import * as actions from './store/actions/employee'
 
 const App = () => {
-  const [employeesList, setEmployeesList] = useState([
-    {
-      id: '1',
-      name: 'Mark McDowel',
-      role: 'Software Engineer'
-    },
-    {
-      id: '2',
-      name: 'Chris Denver',
-      role: 'Software Architect'
-    }
-  ])
+  const employees = useSelector(state => state.employeeReducer.employees)
+  const dispatch = useDispatch()
 
-  const addEmployee = employee => {
-    setEmployeesList(employeesList.concat(employee))
-  }
+  const onFetchEmployees = () => dispatch(actions.fetchEmployees())
+  const onAddEmployee = employee => dispatch(actions.addEmployee(employee))
+  const onRemoveEmployee = employeeId => dispatch(actions.removeEmployee(employeeId))
 
-  const deleteEmployee = employeeId => {
-    setEmployeesList(employeesList.filter(employee => employee.id !== employeeId))
-  }
+  useEffect(() => {
+    onFetchEmployees()
+  }, [])
 
   return (
     <Paper
@@ -36,8 +28,8 @@ const App = () => {
     >
       <Grid container justify='center'>
         <Grid item xs={11} md={8} lg={4}>
-          <EmployeeList employees={employeesList} deleteEmployee={deleteEmployee}></EmployeeList>
-          <EmployeeForm addEmployee={addEmployee}></EmployeeForm>
+          <EmployeeList employees={employees} removeEmployee={onRemoveEmployee}></EmployeeList>
+          <EmployeeForm addEmployee={onAddEmployee}></EmployeeForm>
         </Grid>
       </Grid>
     </Paper>
