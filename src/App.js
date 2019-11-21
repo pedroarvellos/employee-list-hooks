@@ -4,7 +4,6 @@ import { Paper, Grid } from '@material-ui/core'
 import EmployeeList from './Employee/EmployeeList'
 import EmployeeForm from './Employee/EmployeeForm'
 import * as actions from './store/actions/employee'
-import axios from './axios'
 
 const App = () => {
   const employees = useSelector(state => state.employeeReducer.employees)
