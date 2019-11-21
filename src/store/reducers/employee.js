@@ -32,7 +32,7 @@ const addEmployeeSuccess = (state, action) => {
     const newEmployee = { ...action.employee, ...{ id: uuid() } }
     return {
         ...state,
-        ...{ employees: state.employees.concat(newEmployee) }
+        ...{ employees: state.employees.concat(newEmployee), loading: false }
     }
 }
 
@@ -50,10 +50,24 @@ const addEmployeeStart = state => {
     }
 }
 
-const removeEmployee = (state, action) => {
+const removeEmployeeSuccess = (state, action) => {
     return {
         ...state,
-        ...{ employees: state.employees.filter(employee => employee.id !== action.employeeId) }
+        ...{ employees: state.employees.filter(employee => employee.id !== action.employeeId), loading: false }
+    }
+}
+
+const removeEmployeeFail = (state, action) => {
+    return {
+        ...state,
+        ...{ err: action.err, loading: false }
+    }
+}
+
+const removeEmployeeStart = state => {
+    return {
+        ...state,
+        ...{ loading: true }
     }
 }
 
@@ -65,7 +79,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ADD_EMPLOYEE_START: return addEmployeeStart(state)
         case actionTypes.ADD_EMPLOYEE_FAIL: return addEmployeeFail(state, action)
         case actionTypes.ADD_EMPLOYEE_SUCCESS: return addEmployeeSuccess(state, action)
-        case actionTypes.REMOVE_EMPLOYEE: return removeEmployee(state, action)
+        case actionTypes.REMOVE_EMPLOYEE_START: return removeEmployeeStart(state)
+        case actionTypes.REMOVE_EMPLOYEE_FAIL: return removeEmployeeFail(state, action)
+        case actionTypes.REMOVE_EMPLOYEE_SUCCESS: return removeEmployeeSuccess(state, action)
         default: return state
     }
 }
